@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(cookieParser());
 
   // CORS setup
-  const corsOrigins = configService.get<string>("CORS_ORIGIN") || [
+  const corsOrigins = configService.get<string>("CORS_ORIGIN")?.split(",") || [
     "http://localhost:3000",
   ];
   app.enableCors({
